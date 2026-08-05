@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F5F6F8;
+  --foreground: #1F2937;
+  --primary-green: #4E9F83;
+  --lavender: #B39DDB;
+  --card-white: #FFFFFF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary-green);
+  --color-accent: var(--lavender);
+  --color-card: var(--card-white);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Slightly darker for dark mode if needed, reusing light mode values for now as per design request */
+    --background: #1a1a1a; 
+    --foreground: #ededed;
+    --card-white: #262626;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  @apply antialiased transition-colors duration-300;
+}
+/* Light mode (default) */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Dark mode */
+.dark body {
+  background-color: #111827; /* gray-900 */
+  color: white;
+}
+.dark .card {
+  background-color: #1f2937;
+}
+
+.dark input {
+  background-color: #374151;
+  color: white;
+  border-color: #4b5563;
+}
